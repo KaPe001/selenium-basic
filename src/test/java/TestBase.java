@@ -12,19 +12,19 @@ public class TestBase {
     Random random = new Random();
 
     @BeforeAll
-    public static void setDriver(){
+    public static void setDriver() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://seleniumui.moderntester.pl/form.php");
         driver.manage().window().maximize();
     }
 
     @AfterEach
-    public void tearDown(){
+    public void tearDown() {
         driver.quit();
     }
 }

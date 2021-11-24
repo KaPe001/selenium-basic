@@ -2,7 +2,6 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -32,9 +31,9 @@ public class DownloadAFile {
 
         driver.findElement(By.cssSelector(".needs-validation div:nth-child(12) a")).click();
 
-        try{
+        try {
             Thread.sleep(2500);
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
