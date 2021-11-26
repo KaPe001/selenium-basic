@@ -46,11 +46,10 @@ public class DownloadAFile {
             e.printStackTrace();
         }
 
-        // w/o the wait block, the file is saving with the wrong coding
+        // w/o the wait block, the file is saved with the wrong coding
         driver.quit();
 
         //read how many files is in directory
-        //File myNewDirectory = new File(downloadPath);
         int fileCountAfterTheDownload = Objects.requireNonNull(myNewDirectory.list()).length;
         System.out.println("File count after downloading a new file: " + fileCountAfterTheDownload);
 
