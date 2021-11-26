@@ -3,6 +3,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -11,6 +13,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DownloadAFile {
+    static Logger logger = LoggerFactory.getLogger(DownloadAFile.class);
 
     public static void main(String[] args) throws IOException {
         WebDriverManager.chromedriver().setup();
@@ -30,6 +33,7 @@ public class DownloadAFile {
         driver.get("https://seleniumui.moderntester.pl/form.php");
 
         driver.findElement(By.cssSelector(".needs-validation div:nth-child(12) a")).click();
+        logger.info("Document downloaded correctly");
 
         try {
             Thread.sleep(2500);

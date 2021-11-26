@@ -15,6 +15,7 @@ public class FormTest extends TestBase {
     public void shouldFillFormWithSuccess() {
         String title = driver.getTitle();
         assertThat(title, equalTo("Automation Pratice")); // spelling mistake
+        logger.info("Title is correct");
 
         WebElement firstName = driver.findElement(By.cssSelector("#inputFirstName3"));
         firstName.sendKeys("someFirstName");
@@ -49,11 +50,13 @@ public class FormTest extends TestBase {
         File file = new File("src/test/resources/someFileForTest.txt");
         WebElement addFile = driver.findElement(By.id("chooseFile"));
         addFile.sendKeys(file.getAbsolutePath());
+        logger.info("File uploaded correctly");
 
         WebElement signInButton = driver.findElement(By.cssSelector(".needs-validation div:nth-child(13) button"));
         signInButton.click();
 
         WebElement confirmMessage = driver.findElement(By.id("validator-message"));
         assertThat(confirmMessage.getText(), equalTo("Form send with success"));
+        logger.info("Confirmation message appeared");
     }
 }
