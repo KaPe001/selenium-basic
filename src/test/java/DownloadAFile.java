@@ -13,27 +13,27 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-public class DownloadAFile {
+public class DownloadAFile extends TestBase {
     static Logger logger = LoggerFactory.getLogger(DownloadAFile.class);
 
     public static void main(String[] args) throws IOException {
         WebDriverManager.chromedriver().setup();
-        String downloadPath = "C:\\Users\\kpetkowska\\IdeaProjects\\selenium-basic\\src\\test\\resources";
+        File downloadPath = new File("src/test/resources");
+        String absolutePath = downloadPath.getCanonicalPath();
 
         Map<String, Object> prefs = new HashMap<>();
         //prefs.put("profile.default_content_settings.popups", 0);
-        prefs.put("download.default_directory", downloadPath);
+        prefs.put("download.default_directory", absolutePath);
 
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", prefs);
         DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-        //desiredCapabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
         desiredCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
         ChromeDriver driver = new ChromeDriver(options);
         driver.get("https://seleniumui.moderntester.pl/form.php");
 
-        File myNewDirectory = new File(downloadPath);
+        File myNewDirectory = new File(absolutePath);
         int fileCountBeforeDownload = Objects.requireNonNull(myNewDirectory.list()).length;
         System.out.println("File count before downloading a new file: " + fileCountBeforeDownload);
 
@@ -54,7 +54,7 @@ public class DownloadAFile {
         System.out.println("File count after downloading a new file: " + fileCountAfterTheDownload);
 
         //print all files
-        Files.list(new File(downloadPath).toPath())
+        Files.list(new File(absolutePath).toPath())
                 .limit(10)
                 .forEach(System.out::println);
     }

@@ -26,18 +26,20 @@ public class FormTest extends TestBase {
         WebElement email = driver.findElement(By.cssSelector("#inputEmail3"));
         email.sendKeys("someEmail@example.example");
 
-        List<WebElement> gender = driver.findElements(By.cssSelector("fieldset:nth-child(4) > div > div  input"));
+        List<WebElement> gender = driver.findElements(By.cssSelector("[name='gridRadiosSex']"));
         int genderIndex = random.nextInt(gender.size());
         gender.get(genderIndex).click();
+        logger.info("Gender randomly selected");
 
         WebElement age = driver.findElement(By.cssSelector("#inputAge3"));
         age.sendKeys("26");
 
-        List<WebElement> yearsOfExperience = driver.findElements(By.cssSelector("fieldset:nth-child(6) > div > div input"));
+        List<WebElement> yearsOfExperience = driver.findElements(By.cssSelector("[name='gridRadiosExperience']"));
         int YearsOfExperienceIndex = random.nextInt(yearsOfExperience.size());
         yearsOfExperience.get(YearsOfExperienceIndex).click();
+        logger.info("Years of experience randomly selected");
 
-        WebElement profession = driver.findElement(By.cssSelector("fieldset:nth-child(7) > div > div > div:nth-child(2) input"));
+        WebElement profession = driver.findElement(By.cssSelector("[id='gridCheckAutomationTester']"));
         profession.click();
 
         Select continents = new Select(driver.findElement(By.id("selectContinents")));
@@ -52,7 +54,7 @@ public class FormTest extends TestBase {
         addFile.sendKeys(file.getAbsolutePath());
         logger.info("File uploaded correctly");
 
-        WebElement signInButton = driver.findElement(By.cssSelector(".needs-validation div:nth-child(13) button"));
+        WebElement signInButton = driver.findElement(By.cssSelector(".btn-primary"));
         signInButton.click();
 
         WebElement confirmMessage = driver.findElement(By.id("validator-message"));
