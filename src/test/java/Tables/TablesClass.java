@@ -35,7 +35,7 @@ public class TablesClass extends TestBase {
             String state = row.findElement(By.xpath("td[3]")).getText();
             int height = Integer.parseInt(row.findElement(By.xpath("td[4]")).getText());
 
-            if(state.equals("Switzerland") && height > 4000) {
+            if (state.equals("Switzerland") && height > 4000) {
                 System.out.println("Rank: " + rank + " Peak: " + peak + " Mountain Range: "
                         + mountainRange);
             }

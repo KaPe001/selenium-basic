@@ -6,12 +6,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
 import java.time.Duration;
 
 public class Iframes extends TestBase {
 
     @Test
-    public void goingThroughIframes(){
+    public void goingThroughIframes() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
         WebElement basic = driver.findElement(By.cssSelector(".dropdown:first-child"));

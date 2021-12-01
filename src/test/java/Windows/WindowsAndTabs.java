@@ -72,7 +72,7 @@ public class WindowsAndTabs extends TestBase {
         logger.info("Driver return to the old tab");
     }
 
-    public void tableMethod(){
+    public void tableMethod() {
         List<WebElement> table = driver.findElements(By.cssSelector("tbody tr"));
         for (WebElement row : table) {
 
