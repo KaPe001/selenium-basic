@@ -1,4 +1,4 @@
-package Alerts;
+package IFrames;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class TestBase {
     WebDriver driver;
-    static Logger logger = LoggerFactory.getLogger(TestBase.class);
+    static Logger logger = LoggerFactory.getLogger(Alerts.TestBase.class);
     Random random = new Random();
 
     @BeforeAll
