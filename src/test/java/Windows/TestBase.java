@@ -34,7 +34,7 @@ public class TestBase {
 
     @AfterEach
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
         logger.info("Driver teared down correctly");
     }
 }
