@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class TestBase {
     WebDriver driver;
-    static Logger logger = LoggerFactory.getLogger(Alerts.TestBase.class);
+    static Logger logger = LoggerFactory.getLogger(TestBase.class);
     Random random = new Random();
 
     @BeforeAll

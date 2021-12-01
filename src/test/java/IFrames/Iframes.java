@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
-public class Iframes extends TestBase{
+public class Iframes extends TestBase {
 
     @Test
     public void goingThroughIframes(){
