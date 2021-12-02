@@ -1,5 +1,6 @@
 package Tooltip;
 
+import Alerts.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,8 +18,8 @@ public class Tooltip extends TestBase {
     public void doingToolTips() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
-        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("ul li:nth-child(3)")));
-        driver.findElement(By.cssSelector("ul li:nth-child(3)")).click();
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.cssSelector("li:nth-child(3)")));
+        driver.findElement(By.cssSelector("li:nth-child(3)")).click();
         driver.findElement(By.id("tooltip-item")).click();
 
         WebElement tooltipMessage = driver.findElement(By.id("age"));
