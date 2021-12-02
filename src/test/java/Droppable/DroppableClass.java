@@ -6,6 +6,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.IsEqual.equalTo;
+
 public class DroppableClass extends TestBase {
 
     @Test
@@ -22,5 +25,9 @@ public class DroppableClass extends TestBase {
                 .moveToElement(droppableArea)
                 .release()
                 .perform();
+
+        WebElement confirmMessage = driver.findElement(By.cssSelector("[id='droppable'] p"));
+        assertThat(confirmMessage.getText(), equalTo("Dropped!"));
+        logger.info("Confirmation message appeared. Item dropped.");
     }
 }
