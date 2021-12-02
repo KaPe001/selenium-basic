@@ -1,5 +1,6 @@
 package IFrames;
 
+import Alerts.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;

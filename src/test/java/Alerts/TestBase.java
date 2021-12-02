@@ -12,8 +12,8 @@ import org.slf4j.LoggerFactory;
 import java.time.Duration;
 
 public class TestBase {
-    WebDriver driver;
-    static Logger logger = LoggerFactory.getLogger(TestBase.class);
+    public WebDriver driver;
+    public static Logger logger = LoggerFactory.getLogger(TestBase.class);
 
     @BeforeAll
     public static void setDriver() {

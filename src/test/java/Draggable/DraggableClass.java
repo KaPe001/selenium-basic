@@ -1,5 +1,6 @@
 package Draggable;
 
+import Alerts.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -9,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class DraggableClass extends TestBase{
+public class DraggableClass extends TestBase {
 
     @Test
     public void dragSquare(){
