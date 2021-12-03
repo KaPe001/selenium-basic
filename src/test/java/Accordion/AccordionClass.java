@@ -8,13 +8,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Iterator;
 import java.util.List;
 
 public class AccordionClass extends TestBase {
 
     @Test
-    public void openSectionsAndPrintOutMessage(){
+    public void openSectionsAndPrintOutMessage() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li:nth-child(3)")));
