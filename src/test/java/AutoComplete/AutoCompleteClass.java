@@ -13,7 +13,7 @@ import java.util.List;
 public class AutoCompleteClass extends TestBase {
 
     @Test
-    public void autoCompleteInSearch(){
+    public void autoCompleteInSearch() {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li:nth-child(3)")));
@@ -26,7 +26,7 @@ public class AutoCompleteClass extends TestBase {
         search.sendKeys("a");
 
         List<WebElement> autocompleteList = driver.findElements(By.className("ui-autocomplete"));
-        for(WebElement webElement : autocompleteList){
+        for (WebElement webElement : autocompleteList) {
             System.out.println(webElement.getText());
         }
     }
