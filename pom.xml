@@ -19,6 +19,7 @@
         <webdrivermanager.version>4.4.1</webdrivermanager.version>
         <hamcrest.version>2.2</hamcrest.version>
         <logback.version>1.2.3</logback.version>
+        <jUnitDataProvider.version>1.13.1</jUnitDataProvider.version>
     </properties>
 
     <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
@@ -70,6 +71,15 @@
             <artifactId>logback-classic</artifactId>
             <version>${logback.version}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.tngtech.java/junit-dataprovider -->
+        <dependency>
+            <groupId>com.tngtech.java</groupId>
+            <artifactId>junit-dataprovider</artifactId>
+            <version>${jUnitDataProvider.version}</version>
+            <scope>test</scope>
+        </dependency>
+
 
     </dependencies>
 
