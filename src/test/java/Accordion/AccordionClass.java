@@ -44,8 +44,9 @@ public class AccordionClass extends TestBase {
 
         driver.findElement(By.id("ui-id-7")).click();
         wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.id("ui-id-8")));
-        WebElement fourthText = driver.findElement(By.id("ui-id-8"));
-        System.out.println("\nFourth text = " + fourthText.getText());
+        WebElement fourthTextFirstPart = driver.findElement(By.cssSelector("[id='ui-id-8'] p"));
+        WebElement fourthTextSecondPart = driver.findElement(By.cssSelector("[id='ui-id-8'] p:nth-child(2)"));
+        System.out.println("\nFourth text = " + fourthTextFirstPart.getText() + "\n" + fourthTextSecondPart.getText());
         logger.info("Fourth text printed out correctly");
     }
 }
