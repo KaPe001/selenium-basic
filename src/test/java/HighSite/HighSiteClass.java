@@ -15,14 +15,21 @@ public class HighSiteClass extends TestBase {
 
     @Test
     public void scrollDownThePage() throws IOException {
-        WebDriverWait wait  = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("li:nth-child(4)")));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
 
         driver.findElement(By.cssSelector("li:nth-child(4)")).click();
         driver.findElement(By.id("high-site-item")).click();
 
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
+        //js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
+
+        WebElement submitButton = driver.findElement(By.className("show-button"));
+
+        js.executeScript("arguments[0].scrollIntoView();", submitButton);
+        if (submitButton.isDisplayed()) {
+            logger.info("Submit button visible");
+        }
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         FileUtils.copyFile(file, new File("src/test/java/HighSite_scr.png"));
