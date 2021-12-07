@@ -29,16 +29,19 @@ public class SortableClass extends TestBase {
         System.out.println(Arrays.toString(table));
 
         List<WebElement> WebElementTable = driver.findElements(By.cssSelector("#sortable li"));
+//        for(WebElement webElement : WebElementTable){
+//            actionOnElement(tableList.get(), tableList.size());
+//        }
 
-        for (int i = 1; i <= WebElementTable.size(); i++) {
-            actionOnElement(table[i], i);
+        for (int i = 1; i == WebElementTable.size(); i++) {
+            actionOnElement(i,tableList.get(i));
         }
     }
 
-    public void actionOnElement(int what, int whereTo) {
+    public void actionOnElement(int source, int target) {
         Actions actions = new Actions(driver);
-        actions.dragAndDrop(driver.findElement(By.xpath("//*[@id='sortable']/li[" + what + "]")),
-                        driver.findElement(By.cssSelector("#sortable li:nth-child(" + whereTo + ")")))
+        actions.dragAndDrop(driver.findElement(By.xpath("//*[@id='sortable']/li[" + source + "]")),
+                        driver.findElement(By.cssSelector("#sortable li:nth-child(" + target + ")")))
                 .release()
                 .build()
                 .perform();
