@@ -22,8 +22,7 @@ public class HighSiteClass extends TestBase {
         driver.findElement(By.cssSelector("li:nth-child(4)")).click();
         driver.findElement(By.id("high-site-item")).click();
 
-        //js.executeScript("window.scrollBy(0, document.body.scrollHeight)");
-
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.className("show-button")));
         WebElement submitButton = driver.findElement(By.className("show-button"));
 
         js.executeScript("arguments[0].scrollIntoView();", submitButton);
@@ -32,6 +31,6 @@ public class HighSiteClass extends TestBase {
         }
 
         File file = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-        FileUtils.copyFile(file, new File("src/test/java/HighSite_scr.png"));
+        FileUtils.copyFile(file, new File("src/screenshots/HighSite_scr.png"));
     }
 }
