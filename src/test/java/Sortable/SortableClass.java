@@ -3,7 +3,6 @@ package Sortable;
 import Alerts.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -28,21 +27,15 @@ public class SortableClass extends TestBase {
         Collections.shuffle(tableList);
         System.out.println(Arrays.toString(table));
 
-        List<WebElement> WebElementTable = driver.findElements(By.cssSelector("#sortable li"));
-//        for(WebElement webElement : WebElementTable){
-//            actionOnElement(tableList.get(), tableList.size());
-//        }
-
-        for (int i = 1; i == WebElementTable.size(); i++) {
-            actionOnElement(i,tableList.get(i));
+        for (Integer webElement : tableList) {
+            actionOnElement(webElement, tableList.indexOf(webElement) + 1);
         }
     }
 
     public void actionOnElement(int source, int target) {
         Actions actions = new Actions(driver);
-        actions.dragAndDrop(driver.findElement(By.xpath("//*[@id='sortable']/li[" + source + "]")),
+        actions.dragAndDrop(driver.findElement(By.xpath("//li[text()='Item " + source + "']")),
                         driver.findElement(By.cssSelector("#sortable li:nth-child(" + target + ")")))
-                .release()
                 .build()
                 .perform();
     }
