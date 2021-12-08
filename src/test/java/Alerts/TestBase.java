@@ -33,6 +33,6 @@ public class TestBase {
     @AfterEach
     public void tearDown() {
         driver.quit();
-        logger.info("Driver teared down correctly");
+        logger.info("Driver tore down correctly");
     }
 }
