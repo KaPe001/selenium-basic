@@ -32,7 +32,6 @@ public class DatePickerClass extends TestBase {
 
         String currentDate = new SimpleDateFormat("MM/dd/yyyy").format(new Date());
 
-        //today date
         WebElement todayDate = driver.findElement(By.className("ui-state-highlight"));
         todayDate.click();
         assertThat(currentDate, equalTo(dateBox.getAttribute("value")));
@@ -43,7 +42,6 @@ public class DatePickerClass extends TestBase {
             e.printStackTrace();
         }
 
-        //next month
         dateBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.className("ui-datepicker-calendar")));
         driver.findElement(By.className("ui-icon-circle-triangle-e")).click();
@@ -56,7 +54,6 @@ public class DatePickerClass extends TestBase {
             e.printStackTrace();
         }
 
-        //last day of the January next year
         dateBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.className("ui-datepicker-calendar")));
         driver.findElement(By.cssSelector("#ui-datepicker-div tr:nth-child(6) > td:nth-child(2)")).click();
@@ -68,7 +65,6 @@ public class DatePickerClass extends TestBase {
             e.printStackTrace();
         }
 
-        //same day as previously
         dateBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.className("ui-datepicker-calendar")));
         driver.findElement(By.className("ui-state-active")).click();
@@ -81,15 +77,11 @@ public class DatePickerClass extends TestBase {
             e.printStackTrace();
         }
 
-        //random day from the previous month
         dateBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.className("ui-datepicker-calendar")));
         driver.findElement(By.className("ui-icon-circle-triangle-w")).click();
 
-        List<WebElement> calendar = driver.findElements(By.cssSelector(".ui-datepicker-calendar tbody tr"));
-        int size = calendar.size();
-        int randomDate = ThreadLocalRandom.current().nextInt(0, size);
-        calendar.get(randomDate).click();
+        randomDayFromCalendar();
 
         try {
             Thread.sleep(1000);
@@ -97,19 +89,31 @@ public class DatePickerClass extends TestBase {
             e.printStackTrace();
         }
 
-        //random date from previous year
         dateBox.click();
         wait.until(ExpectedConditions.elementToBeClickable(By.className("ui-icon-circle-triangle-w")));
+        goToPreviousYearAndGetRandomMonth();
+        randomDayFromCalendar();
+    }
+
+    public void clickTheArrow(int randomClickAmount){
+        for(int i = 0; i < randomClickAmount; i++){
+            driver.findElement(By.className("ui-icon-circle-triangle-w")).click();
+        }
+    }
+    public void goToPreviousYearAndGetRandomMonth(){
+        int randomMonth;
+        randomMonth = ThreadLocalRandom.current().nextInt(0,12);
 
         while (!driver.findElement(By.className("ui-datepicker-year")).getText().equals("2020")) {
             driver.findElement(By.className("ui-icon-circle-triangle-w")).click();
         }
+        clickTheArrow(randomMonth);
+    }
 
-        //not sure how to get a random day from whole year
-        List<WebElement> calendar2 = driver.findElements(By.cssSelector(".ui-datepicker-calendar tbody tr"));
-        int size2 = calendar2.size();
-        int randomDate2 = ThreadLocalRandom.current().nextInt(0, size2);
-
-        calendar2.get(randomDate2).click();
+    public void randomDayFromCalendar(){
+        List<WebElement> calendar = driver.findElements(By.cssSelector(".ui-datepicker-calendar tbody tr"));
+        int size = calendar.size();
+        int randomDate = ThreadLocalRandom.current().nextInt(0, size);
+        calendar.get(randomDate).click();
     }
 }
