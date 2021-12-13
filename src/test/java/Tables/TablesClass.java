@@ -10,7 +10,9 @@ public class TablesClass extends TestBase {
     @Test
     public void workOnTables() {
 
-        new MainFormPage(driver).goToTablePage();
-        new TablePage(driver).printPeaksInSwitzerlandHigherThan4000();
+        new MainFormPage(driver)
+                .goToTablePage();
+        new TablePage(driver)
+                .print();
     }
 }
